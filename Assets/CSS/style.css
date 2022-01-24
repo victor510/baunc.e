@@ -145,6 +145,24 @@ ul li:hover
     background: url(../Images/hero-img.jpg);
     background-size: cover;
     background-position-x: -10%;
+    animation: reveal_hero_image 1.8s ease-in-out;
+}
+
+@keyframes reveal_hero_image
+{
+    0%{
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    33.3%{
+        clip-path: polygon(0 0, 100% 0, 100% 51%, 0 21%);
+    }
+    66.6%{
+        clip-path: polygon(0 0, 100% 0, 100% 51%, 0 85%);
+    }
+    100%
+    {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
 
 
@@ -242,16 +260,17 @@ ul li:hover
         display: flex;
         padding: 0;
         margin: 0;
-        margin-right: 3em;
     }
 
     ul li 
     {
-        padding: 0 1.5rem;
+        padding: 0 5rem;
+        transition: all .1s linear;
     }
     ul li:hover
     {
         background-color: transparent;
+        transform: scale(.8);
     }
     ul li a
     {
