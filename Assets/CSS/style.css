@@ -66,7 +66,7 @@ header
     height: 2.2rem;
     width: 2.2rem;
     z-index: -1;
-    transition: 1s ease-in-out;
+    transition: .8s ease-in-out;
     transform: rotate(45deg);
 }
 .logo a
@@ -176,7 +176,13 @@ ul li:hover
     display: flex;
     padding: .5rem;
     flex-direction: column;
+    position: relative;
 }
+.heading
+{
+    display: none;
+}
+
 .feature
 {
     margin-bottom: 1.5rem;
@@ -199,4 +205,137 @@ ul li:hover
 {
     font-weight: lighter;
     line-height: 2em;
+}
+
+@media only screen and (min-width: 680px) {
+
+    .hero
+    {
+        margin: 1em 5rem;
+        padding-left: 0;
+    }
+    
+}
+
+@media only screen and (min-width: 920px) {
+
+    .menu_btn
+    {
+        display: none;
+    }
+    .close_btn
+    {
+        display: none;
+    }
+    nav
+    {
+        transform: translateX(0);
+        background: none;
+        position: unset;
+        display: block;
+        height: auto;
+        width: auto;
+
+    }
+    nav ul
+    {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        margin-right: 3em;
+    }
+
+    ul li 
+    {
+        padding: 0 1.5rem;
+    }
+    ul li:hover
+    {
+        background-color: transparent;
+    }
+    ul li a
+    {
+        color: var(--bg-color);
+        font-size: 1rem;
+    }
+    .hero-img
+    {
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 30em;
+    }
+    .logo
+    {
+        color: var(--body-font-color);
+    }
+    .logo::after
+    {
+        background-color: crimson;
+    }
+
+    .hero h1
+    {
+        width: 50%;
+        color: var(--body-font-color);
+    }
+    .subhead
+    {
+        width: 50%;
+    }
+
+    .feature
+    {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        place-items: center;
+    }
+    .feature.left
+    {
+        grid-template-areas: 'left right';
+    }
+    .feature.left .content
+    {
+        text-align: left;
+    }
+    .feature.left img
+    {
+        grid-area: left;
+    }
+    .feature img
+    {
+        width: 400px;
+        height: 400px;
+    }
+    .feature .content
+    {
+        text-align: right;
+    }
+
+    .heading
+    {
+        display: block;
+        position: absolute;
+        top: -10%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2em;
+        color: var(--body-font-color);
+        font-weight: bold;
+    }
+}
+
+@media only screen and (min-width: 1150px)
+{
+    .feature .content
+    {
+        width: 80%;
+    }
+
+    header 
+    {
+        position: sticky;
+        top: 0;
+    }
 }
