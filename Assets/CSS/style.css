@@ -377,10 +377,6 @@ ul li:hover a
 }
 
 @media screen and (min-width: 738px) {
-    .feature
-    {
-        /* overflow: hidden; */
-    }
     .overlay
     {
         top: 4.3rem;
@@ -413,7 +409,7 @@ ul li:hover a
         display: flex;
         padding: 0;
         margin: 0;
-        margin-right: 2em;
+        margin-right: 7em;
         margin-left: auto;
     }
 
@@ -539,6 +535,10 @@ ul li:hover a
     nav ul 
     {
         margin-right: 5em;
+    }
+    nav ul li
+    {
+        padding: 0 2rem ;
     }
     nav ul li:hover a{
         color: var(--bg-color);
