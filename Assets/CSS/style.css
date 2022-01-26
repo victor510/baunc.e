@@ -322,7 +322,7 @@ ul li:hover a
 {
     letter-spacing: 4px;
     margin-bottom: 10px;
-    transform: translateY(40px);
+    transform: translateY(50px);
     
     transition: transform .45s ease-out;
 }
@@ -333,7 +333,7 @@ ul li:hover a
 .overlay .price__tag
 {
     letter-spacing: 4px;
-    transform: translateY(40px);
+    transform: translateY(60px);
     
     transition: transform .6s ease-out;
 }
@@ -415,6 +415,21 @@ ul li:hover a
     line-height: 2em;
 }
 
+
+/* ========== GALLERY SECTION ================= */
+section.gallery{
+    display: none;
+}
+
+
+/* =============== MEDIA QUERIES START HERE ============== */
+@media only screen and (min-width: 505px) and (max-width: 680px)
+{
+    .feature img {
+        width: 100%;
+    }
+}
+
 @media only screen and (min-width: 680px) {
 
     .hero
@@ -441,10 +456,6 @@ ul li:hover a
 }
 
 @media screen and (min-width: 738px) {
-    .feature
-    {
-        /* overflow: hidden; */
-    }
     .overlay
     {
         top: 4.3rem;
@@ -617,5 +628,51 @@ ul li:hover a
         font-size: 1.2rem;
         font-family: var(--alt-font);
         font-weight: 300;
+    }
+
+    section.gallery{
+        display: block;
+        height: 100vh;
+        width: 100%;
+        padding: var(--universal-padding);
+        background-color: #222;
+}
+    .gallery__image_container{
+        height: clamp(450px, 300px, 300px);
+        width: clamp(450px, 300px, 300px);
+        height: auto;
+        width: 100%;
+    }
+    .gallery__image_container img{
+        height: auto;
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .gallery__wrapper
+    {
+        display: grid;
+        grid-template-rows: 250px 250px;
+        grid-template-columns: 264px 150px 142px 142px 264px;
+        gap: 3px;
+    }
+    .gallery_content{
+        position: relative;
+    }
+    .gallery__overlay
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: crimson;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .content_1{
+        grid-row: span 2;
     }
 }
