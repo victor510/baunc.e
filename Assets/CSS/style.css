@@ -210,6 +210,20 @@ ul li:hover a
     line-height: 2em;
     max-width: 70%;
     font-family: var(--alt-font);
+    position: relative;
+}
+.subhead span{
+    position: absolute;
+    animation: revealtxt 1.8s ease linear forwards
+}
+@keyframes revealtxt
+{
+    from{
+
+    }
+    to{
+        
+    }
 }
 
 .more-info

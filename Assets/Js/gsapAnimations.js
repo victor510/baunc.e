@@ -14,11 +14,13 @@ gsap.from('ul li', {
     transform: 'translateY(-2em)'
 })
 
-const feature1 = document.querySelector('.feature_1_img');
+const textReveal = gsap.timeline();
 
-feature1.addEventListener('mouseenter', ()=> {
-    gsap.to('.overlay', {
-        duration: .8,
-        opacity: 1
-    })
+textReveal.from('.subhead span', 1.8, {
+    y: 100,
+    ease: 'power4.out',
+    skewY: 10,
+    stagger: {
+        amount: 0.4
+    }
 })
