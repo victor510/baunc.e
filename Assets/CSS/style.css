@@ -211,6 +211,28 @@ ul li:hover a
     max-width: 70%;
     font-family: var(--alt-font);
 }
+.subhead span
+{
+    position: absolute;
+    animation: skew 1.2s ease-in-out forwards;
+}
+.subhead span:nth-child(2)
+{
+    animation-delay: .2;
+}
+.subhead span:last-child
+{
+    animation-delay: .5;
+}
+@keyframes skew {
+    from{
+        opacity: 0;
+        transform: translateY(20px) skewY(5deg);
+    }
+    to{
+        
+    }
+}
 
 .more-info
 {
@@ -622,6 +644,10 @@ section.gallery{
     nav ul li:hover a{
         color: var(--bg-color);
         border-bottom: 2px solid var(--bg-color);
+    }
+    .subhead span{
+        letter-spacing: 4px;
+        opacity: .8;
     }
     .title
     {

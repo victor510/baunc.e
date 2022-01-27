@@ -6,12 +6,6 @@ gsap.from('.hero h1', {
     transform: 'translateY(50px)',
     ease: 'Expo.2'
 })
-gsap.from('.hero p', {
-    duration: 1.4,
-    opacity: .4,
-    transform: 'translateY(70px)',
-    ease: 'Expo.2'
-})
 gsap.from('ul li', {
     delay: .4,
     duration: 1.8,
