@@ -14,6 +14,7 @@
     --universal-padding: 1rem;
     --bg-color: #fff;
     --alt-font: 'Outfit', sans-serif;
+    --button-color: rgb(0, 236, 39) ;
 }
 
 body
@@ -258,8 +259,8 @@ ul li:hover a
 }
 .feature img
 {
-    height: 500px;
-    width: 500px;
+    width: 30rem;
+    height: max(20rem, 26rem);
     object-fit: cover;
 }
 
@@ -267,8 +268,8 @@ ul li:hover a
 {
     position: absolute;
     top: calc(6em + 5px);
-    height: 500px;
-    width: 500px;
+    height: max(20rem, 26rem);
+    width: 100%;
     background-color:rgba(0,0,0, .4);
     right: 0;
     display: flex;
@@ -296,7 +297,7 @@ ul li:hover a
 {
     font-size: clamp(2em, 5em , 6em);
     transform: translateY(40px);
-    transition: transform .2s ease-out;
+    transition: transform .4s ease-out;
     font-family: var(--alt-font);
     position: relative;
     margin-bottom: 15px;
@@ -444,6 +445,7 @@ ul li:hover a
 
 /* ========== GALLERY SECTION ================= */
 section.gallery{
+    position: relative;
     display: none;
 }
 
@@ -485,7 +487,6 @@ section.gallery{
     .overlay
     {
         top: 4.3rem;
-        height: 498px;
     }
 }
 
@@ -668,6 +669,7 @@ section.gallery{
         display: block;
         height: 100vh;
         width: 100%;
+        position: relative;
         padding: var(--universal-padding);
         background-color: var(--bg-color);
         padding: 1rem .5rem;
@@ -692,17 +694,15 @@ section.gallery{
         -ms-transition: all 5s ease-in;
         -o-transition: all 5s ease-in;
         transition: all 5s ease-in;
-    
         vertical-align: middle;
     }
-    .gallery__image_container img:hover{
+    .gallery_content:hover img {
         -webkit-transform:scale(1.3); /* Safari and Chrome */
         -moz-transform:scale(1.3); /* Firefox */
         -ms-transform:scale(1.3); /* IE 9 */
         -o-transform:scale(1.3); /* Opera */
         transform:scale(1.3);
     }
-
     .gallery__wrapper
     {
         display: grid;
@@ -719,23 +719,46 @@ section.gallery{
         top: 0;
         left: 0;
         height: 100%;
+        border-radius: .4em;
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: orangered;
         text-align: center;
+        background-color: rgba(0,0,0, .4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
         visibility: hidden;
         opacity: 0;
+        transition: all .3s ease-in-out;
     }
-    .gallery__overlay .head__caption
-    {
-        font-size: max(2em, 2.5em);
+    .gallery_content:hover .gallery__overlay {
+        visibility: visible;
+        opacity: 1;
     }
-    .gallery__overlay .head__caption
-    {
-        font-size: min(2em, 2.5em);
+    .gallery__overlay h5 {
+        font-size: max(1.8rem, 2.4rem);
+        color: var(--button-color);
+        margin-top: 1.5rem;
+    }
+    .gallery__overlay button {
+        padding: .8rem 1.5em;
+        background-color: transparent;
+        border: 1px solid var(--button-color) ;
+        outline: none;
+        border-radius: .5rem;
+        color: var(--bg-color);
+        font-weight: bold;
+        font-size: 12px;
+        letter-spacing: 3px;
+        transition: all .2s ease;
+    }
+    .gallery_content .gallery__overlay button:hover {
+        cursor: pointer;
+        background-color: var(--button-color) ;
+        color: var(--body-font-color);
+        font-size: 14px;
     }
     .content_1{
         grid-row: span 2;
@@ -759,6 +782,114 @@ section.gallery{
     .content_1 .gallery__image_container img,
     .content_4 .gallery__image_container img{
         height: 530px;
+    }
+    .sectional_overlay
+    {
+        background-color: rgba(0,0,0, .8);
+        backdrop-filter:blur(4px) ;
+        -webkit-backdrop-filter: blur(4px);
+        position: absolute;
+        z-index: 500;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        visibility: hidden;
+        opacity: 0;
+    }
+    .full_shoe_display
+    {
+        /* display: none; */
+        background-color: var(--bg-color);
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: 50%;
+        position: absolute;
+        z-index: 1000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 95%;
+        width: 85%;
+        padding: var(--universal-padding);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        visibility: hidden;
+        opacity: 0;
+    }
+    .full_shoe_display .close_btn {
+        display: unset;
+        top: 0;
+        position: absolute;
+        right: 0;
+        height: 2rem;
+        width: 2rem;
+        fill: var(--body-font-color);
+        opacity: .6;
+    }
+    .product_on_display__image_container {
+        height: max(24rem, 26rem);
+        width: max(20rem, 25rem);
+        display: block;
+        position: relative;
+        background-color: #333;
+        /* opacity: .9; */
+        border-radius: .5rem;
+    }
+    .product_details {
+        position: relative;
+        text-align: left;
+        font-family: var(--alt-font);
+    }
+    .product_details h3 {
+        margin-bottom: 5rem;
+        text-align: left;
+        font-weight: bold;
+        color: var(--body-font-color);
+    }
+    .product_details h3:first-child
+    {
+        font-size: 2rem;
+    }
+    .product_details h3:nth-child(2)
+    {
+        font-size: 2rem;
+    }
+    .product_details h3:last-child
+    {
+        letter-spacing: 3px;
+        font-weight: bold;
+    }
+    .product_details h3:last-child span
+    {
+        font-weight: lighter;
+        color: var(--button-color);
+    }
+
+    .product_on_display__image_container img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: .7;
+        border-radius: .5rem;
+    }
+
+    .full_shoe_display__footer
+    {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        color: var(--body-font-color);
+        font-size: 12px;
+    }
+    .full_shoe_display__footer span {
+        color: var(--button-color);
+        font-weight: bold;
+        cursor: pointer;
     }
     
 
