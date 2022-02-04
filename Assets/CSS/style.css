@@ -36,6 +36,7 @@ header
     justify-content: space-between;
     flex-direction: row;
     padding: calc(var(--universal-padding) / 2);
+    transition: background-color .5s ease;
 }
 .menu_btn
 {
@@ -68,7 +69,7 @@ header
 {
     content: '';
     position: absolute;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     background-color: #fff;
     height: 2.2rem;
     width: 2.2rem;
@@ -163,6 +164,23 @@ ul li:hover a
     }
 }
 
+.header.scrolled {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 10vh;
+    z-index: 300;
+    background-color: var(--body-font-color);
+    box-shadow: 0px 0px 4px 1px var(--body-font-color);
+    backdrop-filter: blur(4px);
+}
+.header.scrolled .logo a{
+    color: #fff;
+}
+.header.scrolled nav {
+    height: 90vh;
+    top: 10vh;
+}
 .hero-img
 {
     height: 100vh;
@@ -723,6 +741,27 @@ section.gallery{
 
 
 /* =============== MEDIA QUERIES START HERE ============== */
+@media only screen and (min-width: 200px) and (max-width: 920px) {
+    .header.scrolled {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        height: 10vh;
+        z-index: 300;
+        background-color: ;
+        box-shadow: 0px 0px 4px 1px var(--body-font-color);
+    }
+    .header.scrolled .logo a{
+        color: var(--button-color);
+    }
+    .header.scrolled .logo::after {
+        background-color: crimson;
+    }
+    .header.scrolled .menu_btn path {
+        fill: var(--button-color);
+    }
+}
+
 @media only screen and (min-width: 505px) and (max-width: 680px)
 {
     .feature img {
